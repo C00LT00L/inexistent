@@ -5,41 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inexistent</title>
   <style>
-html, body {
-  margin: 0;
-  padding: 0 2vw;
-  background: white;
-  color: black;
-  font-family: 'Courier New', monospace;
-  font-size: clamp(1.2rem, 4vw, 2rem);
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+    html, body {
+      margin: 0;
+      padding: 0 2vw;
+      background: white;
+      color: black;
+      font-family: 'Courier New', monospace;
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-#typewriter {
-  display: inline-block;
-  word-wrap: break-word;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-  white-space: normal; /* allow wrapping */
-}
+    #typewriter {
+      display: inline-block;
+      word-wrap: break-word;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      white-space: normal; /* allow wrapping */
+    }
 
-.cursor {
-  display: inline-block;
-  width: 1ch;
-  visibility: visible;
-  animation: blink 1s steps(1, start) infinite;
-}
+    .cursor {
+      display: inline-block;
+      width: 1ch;
+      visibility: visible;
+      animation: blink 1s steps(1, start) infinite;
+    }
 
-@keyframes blink {
-  0%, 100% { visibility: visible; }
-  50% { visibility: hidden; }
-}
+    @keyframes blink {
+      0%, 100% { visibility: visible; }
+      50% { visibility: hidden; }
+    }
   </style>
 </head>
 <body>
@@ -48,7 +48,6 @@ html, body {
   <script>
     const message = "what you are searching for is inexistent";
     const textElem = document.getElementById("text");
-
     let i = 0;
     let deleting = false;
     let done = false;
@@ -57,17 +56,17 @@ html, body {
       if (done) return;
 
       if (!deleting) {
-        textElem.textContent = message.slice(0, i++);
+        textElem.innerText = message.slice(0, i++);
         if (i > message.length) {
           deleting = true;
-          setTimeout(type, 2500);
+          setTimeout(type, 2500); // pause before deleting
           return;
         }
       } else {
-        textElem.textContent = message.slice(0, --i);
+        textElem.innerText = message.slice(0, --i);
         if (i === 0) {
           done = true;
-          setTimeout(startTypingDateTime, 1000);
+          setTimeout(startTypingDateTime, 1000); // pause before showing time
           return;
         }
       }
@@ -80,7 +79,7 @@ html, body {
       let j = 0;
 
       function typeTimeChar() {
-        textElem.textContent = fullString.slice(0, j++);
+        textElem.innerText = fullString.slice(0, j++);
         if (j <= fullString.length) {
           setTimeout(typeTimeChar, 50);
         } else {
@@ -100,7 +99,7 @@ html, body {
 
     function updateTimeOnly() {
       const current = getTimeDateString();
-      textElem.textContent = current;
+      textElem.innerText = current;
     }
 
     type();
