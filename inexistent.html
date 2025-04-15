@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inexistent</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: black;
+      font-family: 'Courier New', monospace;
+      font-size: 2rem;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
+    #typewriter {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 1ch;
+      visibility: visible;
+      animation: blink 1s steps(1, start) infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { visibility: visible; }
+      50% { visibility: hidden; }
+    }
+  </style>
+</head>
+<body>
+  <div id="typewriter"><span id="text"></span><span class="cursor">_</span></div>
+
+  <script>
+    const message = "what you are searching for is inexistent";
+    const textElem = document.getElementById("text");
+
+    let i = 0;
+    let deleting = false;
+    let done = false;
+
+    function type() {
+      if (done) return;
+
+      if (!deleting) {
+        textElem.textContent = message.slice(0, i++);
+        if (i > message.length) {
+          deleting = true;
+          setTimeout(type, 2500);
+          return;
+        }
+      } else {
+        textElem.textContent = message.slice(0, --i);
+        if (i === 0) {
+          done = true;
+          setTimeout(startTypingDateTime, 1000);
+          return;
+        }
+      }
+
+      setTimeout(type, 70);
+    }
+
+    function startTypingDateTime() {
+      const fullString = getTimeDateString();
+      let j = 0;
+
+      function typeTimeChar() {
+        textElem.textContent = fullString.slice(0, j++);
+        if (j <= fullString.length) {
+          setTimeout(typeTimeChar, 50);
+        } else {
+          setInterval(updateTimeOnly, 1000);
+        }
+      }
+
+      typeTimeChar();
+    }
+
+    function getTimeDateString() {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      const date = now.toLocaleDateString();
+      return `${time} ${date}`;
+    }
+
+    function updateTimeOnly() {
+      const current = getTimeDateString();
+      textElem.textContent = current;
+    }
+
+    type();
+  </script>
+</body>
+</html>
