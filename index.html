@@ -9,15 +9,17 @@
       padding: 0;
       background: #fff;
       color: #000;
-      font-family: monospace;
+      font-family: 'Courier New', monospace;
       font-size: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      flex-direction: column;
     }
     #console {
       white-space: pre;
+      text-align: center;
     }
     .blinking {
       animation: blink 1s steps(1) infinite;
@@ -33,14 +35,30 @@
 
   <script>
     const phrase = "what you are searching for is inexistent";
+    const countdownLabel = "Time until release:";
     const consoleEl = document.getElementById("console");
     let index = 0;
     let isDeleting = false;
+    let underscoreEl;
+
+    const releaseDate = new Date("2026-04-15T05:00:00.000Z");
+    const totalDuration = releaseDate - new Date();
+
+    function createUnderscore() {
+      underscoreEl = document.createElement("span");
+      underscoreEl.classList.add("blinking");
+      underscoreEl.textContent = "_";
+      consoleEl.appendChild(underscoreEl);
+    }
 
     function typeEffect() {
+      if (!underscoreEl) createUnderscore();
+
       if (!isDeleting) {
         if (index < phrase.length) {
-          consoleEl.textContent += phrase[index++];
+          consoleEl.textContent = phrase.substring(0, index + 1);
+          consoleEl.appendChild(underscoreEl);
+          index++;
           setTimeout(typeEffect, 100);
         } else {
           setTimeout(() => {
@@ -51,24 +69,31 @@
       } else {
         if (index > 0) {
           consoleEl.textContent = phrase.substring(0, --index);
+          consoleEl.appendChild(underscoreEl);
           setTimeout(typeEffect, 50);
         } else {
-          showCountdown();
+          index = 0;
+          typeCountdownLabel();
         }
       }
     }
 
-    function showCountdown() {
-      const title = "\nTime until next release:\n";
-      consoleEl.textContent += title;
+    function typeCountdownLabel() {
+      if (index < countdownLabel.length) {
+        consoleEl.textContent = countdownLabel.substring(0, index + 1);
+        consoleEl.appendChild(underscoreEl);
+        index++;
+        setTimeout(typeCountdownLabel, 50);
+      } else {
+        underscoreEl.remove();
+        consoleEl.textContent += "\n";
+        const countdownEl = document.createElement("span");
+        consoleEl.appendChild(countdownEl);
+        showCountdown(countdownEl);
+      }
+    }
 
-      const countdownEl = document.createElement("span");
-      countdownEl.classList.add("blinking");
-      consoleEl.appendChild(countdownEl);
-
-      const releaseDate = new Date();
-      releaseDate.setFullYear(releaseDate.getFullYear() + 1);
-
+    function showCountdown(countdownEl) {
       function updateCountdown() {
         const now = new Date();
         const diff = releaseDate - now;
