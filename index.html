@@ -7,24 +7,26 @@
   <style>
 html, body {
   margin: 0;
-  padding: 0;
+  padding: 0 2vw;
   background: white;
   color: black;
   font-family: 'Courier New', monospace;
-  font-size: 5vw; /* scales with screen width */
+  font-size: clamp(1.2rem, 4vw, 2rem);
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  text-align: center;
 }
 
 #typewriter {
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 90vw;
-  text-align: center;
+  display: inline-block;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  white-space: normal; /* allow wrapping */
 }
 
 .cursor {
