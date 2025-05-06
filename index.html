@@ -16,109 +16,43 @@
       justify-content: center;
       height: 100vh;
       flex-direction: column;
-    }
-    #console {
-      white-space: pre;
       text-align: center;
-    }
-    .blinking {
-      animation: blink 1s steps(1) infinite;
-    }
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <div id="console"></div>
+  <div id="console">
+    what you are searching for is inexistent<br><br>
+    <span id="countdown"></span>
+  </div>
 
   <script>
-    const phrase = "what you are searching for is inexistent";
-    const countdownLabel = "Time until release:";
-    const consoleEl = document.getElementById("console");
-    let index = 0;
-    let isDeleting = false;
-    let underscoreEl;
-
     const releaseDate = new Date("2026-04-15T05:00:00.000Z");
-    const totalDuration = releaseDate - new Date();
 
-    function createUnderscore() {
-      underscoreEl = document.createElement("span");
-      underscoreEl.classList.add("blinking");
-      underscoreEl.textContent = "_";
-      consoleEl.appendChild(underscoreEl);
-    }
+    function updateCountdown() {
+      const now = new Date();
+      const diff = releaseDate - now;
 
-    function typeEffect() {
-      if (!underscoreEl) createUnderscore();
+      const countdownEl = document.getElementById("countdown");
 
-      if (!isDeleting) {
-        if (index < phrase.length) {
-          consoleEl.textContent = phrase.substring(0, index + 1);
-          consoleEl.appendChild(underscoreEl);
-          index++;
-          setTimeout(typeEffect, 100);
-        } else {
-          setTimeout(() => {
-            isDeleting = true;
-            typeEffect();
-          }, 2000);
-        }
-      } else {
-        if (index > 0) {
-          consoleEl.textContent = phrase.substring(0, --index);
-          consoleEl.appendChild(underscoreEl);
-          setTimeout(typeEffect, 50);
-        } else {
-          index = 0;
-          typeCountdownLabel();
-        }
-      }
-    }
-
-    function typeCountdownLabel() {
-      if (index < countdownLabel.length) {
-        consoleEl.textContent = countdownLabel.substring(0, index + 1);
-        consoleEl.appendChild(underscoreEl);
-        index++;
-        setTimeout(typeCountdownLabel, 50);
-      } else {
-        underscoreEl.remove();
-        consoleEl.textContent += "\n";
-        const countdownEl = document.createElement("span");
-        consoleEl.appendChild(countdownEl);
-        showCountdown(countdownEl);
-      }
-    }
-
-    function showCountdown(countdownEl) {
-      function updateCountdown() {
-        const now = new Date();
-        const diff = releaseDate - now;
-
-        if (diff <= 0) {
-          countdownEl.textContent = "release is inexistent";
-          return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-        const milliseconds = diff % 1000;
-
-        countdownEl.textContent =
-          `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds.toString().padStart(3, '0')}ms`;
-
-        setTimeout(updateCountdown, 50);
+      if (diff <= 0) {
+        countdownEl.textContent = "release is inexistent";
+        return;
       }
 
-      updateCountdown();
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      const milliseconds = diff % 1000;
+
+      countdownEl.textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s ${milliseconds.toString().padStart(3, '0')}ms`;
+
+      setTimeout(updateCountdown, 50);
     }
 
-    typeEffect();
+    updateCountdown();
   </script>
 </body>
 </html>
