@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@300;400;500;600;700&family=Roboto+Mono:wght@100;200;300&display=swap');
 
 /* ─── TOKENS ─────────────────────────────────────────────── */
 :root {
-  --bg:           #0e0e0e;
-  --surface:      #161616;
-  --surface-2:    #1e1e1e;
-  --border:       #2a2a2a;
-  --border-light: #383838;
-  --muted:        #555;
-  --mid:          #888;
-  --text:         #d4d4d4;
-  --bright:       #f0f0f0;
-  --accent:       #a8b8c8;
-  --accent-hi:    #c8daea;
-  --mono:         'Share Tech Mono', monospace;
+  --bg:           #f5f5f5;
+  --surface:      #efefef;
+  --surface-2:    #e6e6e6;
+  --border:       #d4d4d4;
+  --border-light: #c0c0c0;
+  --muted:        #aaaaaa;
+  --mid:          #777777;
+  --text:         #444444;
+  --bright:       #111111;
+  --accent:       #888888;
+  --accent-hi:    #555555;
+  --mono:         'Roboto Mono', monospace;
   --display:      'Barlow Condensed', sans-serif;
   --body:         'Barlow', sans-serif;
   --transition:   180ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -52,7 +52,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(14,14,14,0.92);
+  background: rgba(245,245,245,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -66,15 +66,15 @@ header {
   justify-content: space-between;
 }
 .nav-logo {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.18em;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 200;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--bright);
 }
 .nav-logo span {
-  color: var(--accent);
+  color: var(--bright);
 }
 nav ul {
   display: flex;
@@ -98,7 +98,7 @@ nav a::after {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--accent);
+  background: var(--bright);
   transition: width var(--transition);
 }
 nav a:hover,
@@ -151,7 +151,7 @@ nav a.active::after { width: 100%; }
   font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--mid);
   margin-bottom: 1.5rem;
 }
 .hero h1 {
@@ -199,19 +199,19 @@ nav a.active::after { width: 100%; }
   transition: all var(--transition);
 }
 .btn:hover {
-  border-color: var(--accent);
+  border-color: var(--bright);
   color: var(--bright);
-  background: rgba(168,184,200,0.06);
+  background: rgba(17,17,17,0.06);
 }
 .btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #0e0e0e;
+  background: var(--bright);
+  border-color: var(--bright);
+  color: #f5f5f5;
 }
 .btn-primary:hover {
   background: var(--accent-hi);
   border-color: var(--accent-hi);
-  color: #0a0a0a;
+  color: #f5f5f5;
 }
 
 /* ─── PROJECT GRID ───────────────────────────────────────── */
@@ -276,7 +276,7 @@ nav a.active::after { width: 100%; }
   font-size: 0.62rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--mid);
 }
 .project-title {
   font-family: var(--display);
@@ -305,7 +305,7 @@ nav a.active::after { width: 100%; }
   margin-top: auto;
 }
 .project-link::after { content: '→'; }
-.project-card:hover .project-link { color: var(--accent); }
+.project-card:hover .project-link { color: var(--mid); }
 
 /* ─── PAGE TITLE BLOCK ───────────────────────────────────── */
 .page-title-block {
@@ -425,8 +425,8 @@ nav a.active::after { width: 100%; }
   transition: all var(--transition);
 }
 .skill-tag:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--bright);
+  color: var(--bright);
 }
 
 /* ─── PROJECT DETAIL ─────────────────────────────────────── */
@@ -548,7 +548,7 @@ nav a.active::after { width: 100%; }
   content: '';
   width: 4px;
   height: 4px;
-  background: var(--accent);
+  background: var(--mid);
   flex-shrink: 0;
 }
 .sidebar-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -601,7 +601,7 @@ footer {
 /* ─── METALLIC RULE ──────────────────────────────────────── */
 .metal-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-light) 20%, var(--accent) 50%, var(--border-light) 80%, transparent);
+  background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border-light) 50%, var(--border) 80%, transparent);
   border: none;
   margin: 0;
 }
