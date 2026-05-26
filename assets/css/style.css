@@ -608,7 +608,14 @@ footer {
 
 /* ─── RESPONSIVE NAV ─────────────────────────────────────── */
 @media (max-width: 600px) {
-  nav ul { gap: 1.25rem; }
-  nav a { font-size: 0.7rem; }
-  .nav-logo { font-size: 0.9rem; }
+  .nav-inner { padding: 0 1rem; gap: 1rem; }
+  .nav-logo { font-size: 0.8rem; letter-spacing: 0.15em; flex-shrink: 0; margin-right: 1rem; }
+  nav ul { gap: 1rem; }
+  nav a { font-size: 0.68rem; letter-spacing: 0.08em; }
+}
+
+@media (max-width: 400px) {
+  .nav-logo { font-size: 0.72rem; letter-spacing: 0.1em; }
+  nav ul { gap: 0.65rem; }
+  nav a { font-size: 0.62rem; }
 }
