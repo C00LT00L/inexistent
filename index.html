@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sample Project One &mdash; Crosby Grim</title>
-  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <title>Crosby Grim</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
 
   <header>
     <div class="nav-inner">
-      <a href="../../index.html" class="nav-logo">Crosby<span>&nbsp;Grim</span></a>
+      <a href="/" class="nav-logo">Crosby<span>&nbsp;Grim</span></a>
       <nav>
         <ul>
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../index.html" class="active">Projects</a></li>
-          <li><a href="../../photos/index.html">Photos</a></li>
-          <li><a href="../../about/index.html">About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/photos/">Photos</a></li>
+          <li><a href="/about/">About</a></li>
         </ul>
       </nav>
     </div>
@@ -26,95 +26,82 @@
   <main>
     <div class="page">
 
-      <!-- PROJECT HEADER -->
-      <div class="project-detail-header fade-up fade-up-1">
-        <div class="breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span class="breadcrumb-sep">/</span>
-          <a href="../index.html">Projects</a>
-          <span class="breadcrumb-sep">/</span>
-          <span>Sample Project One</span>
-        </div>
-        <h1 class="project-detail-title">
-          <strong>Sample Project</strong>
-          One
+      <!-- HERO -->
+      <section class="hero">
+        <p class="hero-eyebrow fade-up fade-up-1">Portfolio &mdash; Personal Work</p>
+        <h1 class="fade-up fade-up-2">
+          <strong>Crosby</strong>
+          Grim
         </h1>
-        <div class="project-meta-row">
-          <div class="project-meta-item">
-            <label>Category</label>
-            <span>Engineering</span>
-          </div>
-          <div class="project-meta-item">
-            <label>Year</label>
-            <span>2024</span>
-          </div>
-          <div class="project-meta-item">
-            <label>Status</label>
-            <span>Completed</span>
-          </div>
+        <p class="hero-sub fade-up fade-up-3">
+          A collection of personal projects, experiments, and photography.
+          Built with precision. Documented with care.
+        </p>
+        <div class="hero-cta fade-up fade-up-4">
+          <a href="/projects/" class="btn btn-primary">View Projects</a>
+          <a href="/about/" class="btn">About Me</a>
         </div>
-      </div>
+      </section>
 
-      <!-- HERO IMAGE -->
-      <div class="project-image-full fade-up fade-up-2">
-        Hero image placeholder &mdash; replace with &lt;img&gt; tag
-      </div>
+      <!-- FEATURED PROJECTS -->
+      <section>
+        <p class="section-label fade-up fade-up-1">Featured Projects</p>
+        <div class="project-grid">
 
-      <!-- PROJECT BODY -->
-      <div class="project-body fade-up fade-up-3">
-
-        <div class="project-main">
-          <h2>Overview</h2>
-          <p>
-            Replace this section with a real description of what the project is, what problem it solves,
-            and why you built it. Write in whatever level of detail fits the project.
-          </p>
-          <p>
-            This template gives you two columns: a main content area on the left and a sidebar on the right
-            for technical specs, tools, and links. On mobile the columns stack vertically.
-          </p>
-
-          <h2>Process</h2>
-          <p>
-            Describe how you approached the project here. What were the key decisions? What did you
-            try that did not work? What surprised you?
-          </p>
-
-          <!-- Inline image example -->
-          <div class="project-image-full">
-            Process image placeholder &mdash; replace with &lt;img&gt; tag
-          </div>
-
-          <h2>Results</h2>
-          <p>
-            What did you end up with? What did you learn? Would you do anything differently?
-            Add as many sections and images as the project warrants.
-          </p>
-        </div>
-
-        <!-- SIDEBAR -->
-        <aside>
-          <div class="project-sidebar-box">
-            <h3>Tech Stack</h3>
-            <ul class="tech-stack-list">
-              <li>Tool or Language 1</li>
-              <li>Tool or Language 2</li>
-              <li>Tool or Language 3</li>
-              <li>Tool or Language 4</li>
-            </ul>
-
-            <div class="sidebar-links" style="margin-top: 1.75rem;">
-              <a href="#" class="btn" style="justify-content: center;">View Source</a>
-              <a href="#" class="btn" style="justify-content: center;">Live Demo</a>
+          <a href="/projects/sample-project/" class="project-card">
+            <div class="project-thumb">
+              <div class="project-thumb-placeholder">No image yet</div>
             </div>
-          </div>
-        </aside>
+            <span class="project-tag">Engineering</span>
+            <h3 class="project-title">Sample Project One</h3>
+            <p class="project-desc">A placeholder for your first featured project. Replace this with a real description once you add your work.</p>
+            <span class="project-link">View Project</span>
+          </a>
 
-      </div>
+          <a href="/projects/" class="project-card">
+            <div class="project-thumb">
+              <div class="project-thumb-placeholder">No image yet</div>
+            </div>
+            <span class="project-tag">Design</span>
+            <h3 class="project-title">Sample Project Two</h3>
+            <p class="project-desc">Another placeholder. Add your own project here with a real title, tag, description, and thumbnail image.</p>
+            <span class="project-link">View Project</span>
+          </a>
 
-      <!-- BACK LINK -->
+          <a href="/projects/" class="project-card">
+            <div class="project-thumb">
+              <div class="project-thumb-placeholder">No image yet</div>
+            </div>
+            <span class="project-tag">Software</span>
+            <h3 class="project-title">Sample Project Three</h3>
+            <p class="project-desc">A third featured project placeholder. The grid will expand or contract to fit however many cards you add.</p>
+            <span class="project-link">View Project</span>
+          </a>
+
+        </div>
+
+        <div style="text-align:center; margin-top: -3rem; margin-bottom: 2rem;">
+          <a href="/projects/" class="btn">All Projects</a>
+        </div>
+      </section>
+
       <hr class="divider" />
-      <a href="../index.html" class="btn">&larr; All Projects</a>
+
+      <!-- RECENT PHOTOS TEASER -->
+      <section>
+        <p class="section-label fade-up fade-up-1">Recent Photos</p>
+        <div class="photo-grid" style="margin-bottom: 2.5rem;">
+          <div class="photo-item"><div class="photo-placeholder" style="--ratio:4/3;">No image yet</div></div>
+          <div class="photo-item"><div class="photo-placeholder" style="--ratio:3/4;">No image yet</div></div>
+          <div class="photo-item"><div class="photo-placeholder" style="--ratio:1/1;">No image yet</div></div>
+          <div class="photo-item"><div class="photo-placeholder" style="--ratio:16/9;">No image yet</div></div>
+          <div class="photo-item"><div class="photo-placeholder" style="--ratio:4/3;">No image yet</div></div>
+          <div class="photo-item"><div class="photo-placeholder" style="--ratio:3/4;">No image yet</div></div>
+        </div>
+        <div style="text-align:center;">
+          <a href="/photos/" class="btn">View Gallery</a>
+        </div>
+      </section>
 
     </div>
   </main>
@@ -126,6 +113,6 @@
     </div>
   </footer>
 
-  <script src="../../assets/js/nav.js"></script>
+  <script src="/assets/js/nav.js"></script>
 </body>
 </html>
